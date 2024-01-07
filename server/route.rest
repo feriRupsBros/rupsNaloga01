@@ -1,0 +1,231 @@
+GET http://localhost:3000/
+
+###
+
+POST http://localhost:3000/user/login
+Content-Type: application/json
+
+{
+    "username": "jured100",
+    "password": "123456"
+}
+
+### is 403 forbidden added just to make life easier
+
+POST http://localhost:3000/user/register
+Content-Type: application/json
+
+{
+    "username": "jured100",
+    "password": "123456"
+}
+
+###
+
+GET http://localhost:3000/air_pollution
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDI4NTU2ODcsImV4cCI6MTczNDM5MTY4N30.9EB6SCJqEb3ZY_L_RXmpWBesfjYovszLH7f72AGAmfI
+
+###
+
+GET http://localhost:3000/air_pollution
+
+###
+
+GET http://localhost:3000/air_pollution
+Authorization: Bearer lol
+
+### CE bolnica - ze dodano
+
+POST http://localhost:3000/air_pollution
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoianVyZWQxMDAiLCJwYXNzd29yZCI6IjEyMzQ1NiIsIl9pZCI6IjYyNzdkZThiYjNjYjFkMjM4MjVkNDU4NiIsIl9fdiI6MH0sImlhdCI6MTY1MjAyMjkyM30.knoCRNm8-gUqc1K5Z15O98mq0O-tDIA-CimgY9Is9Ag
+Content-Type: application/json
+
+{
+    "name": "CE bolnica",
+    "region": "Celje",
+    "longtitude": 15.267305,
+    "latitude": 46.234818,
+    "source": "arso",
+    "reliability": "100",
+    "PM10": "23",
+    "PM2_5": "16",
+    "SO2": "3",
+    "CO": null,
+    "O3": "54",
+    "NO2": "9",
+    "C6H6": null,
+    "measuring_start": "2023-10-29 10:00",
+    "measuring_end": "2023-10-29 11:00"
+}
+
+### LJ Bežigrad - added
+
+POST http://localhost:3000/air_pollution
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoianVyZWQxMDAiLCJwYXNzd29yZCI6IjEyMzQ1NiIsIl9pZCI6IjYyNzdkZThiYjNjYjFkMjM4MjVkNDU4NiIsIl9fdiI6MH0sImlhdCI6MTY1MjAyMjkyM30.knoCRNm8-gUqc1K5Z15O98mq0O-tDIA-CimgY9Is9Ag
+Content-Type: application/json
+
+{
+    "name": "LJ Bežigrad",
+    "region": "Ljubljana",
+    "longtitude": 14.517454,
+    "latitude": 46.065851,
+    "source": "arso",
+    "reliability": "100",
+    "PM10": "11",
+    "PM2_5": "5",
+    "SO2": null,
+    "CO": null,
+    "O3": "96",
+    "NO2": "1",
+    "C6H6": null,
+    "measuring_start": "2023-10-29 10:00",
+    "measuring_end": "2023-10-29 11:00"
+}
+
+### Novo mesto - added
+
+POST http://localhost:3000/air_pollution
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoianVyZWQxMDAiLCJwYXNzd29yZCI6IjEyMzQ1NiIsIl9pZCI6IjYyNzdkZThiYjNjYjFkMjM4MjVkNDU4NiIsIl9fdiI6MH0sImlhdCI6MTY1MjAyMjkyM30.knoCRNm8-gUqc1K5Z15O98mq0O-tDIA-CimgY9Is9Ag
+Content-Type: application/json
+
+{
+    "name": "Novo mesto",
+    "region": "Novo mesto",
+    "longtitude": 15.18206,
+    "latitude": 45.80208,
+    "source": "arso",
+    "reliability": "100",
+    "PM10": "11",
+    "PM2_5": "5",
+    "SO2": null,
+    "CO": null,
+    "O3": "76",
+    "NO2": "2",
+    "C6H6": null,
+    "measuring_start": "2023-10-29 10:00",
+    "measuring_end": "2023-10-29 11:00"
+}
+
+### Krvavec - added
+
+POST http://localhost:3000/air_pollution
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoianVyZWQxMDAiLCJwYXNzd29yZCI6IjEyMzQ1NiIsIl9pZCI6IjYyNzdkZThiYjNjYjFkMjM4MjVkNDU4NiIsIl9fdiI6MH0sImlhdCI6MTY1MjAyMjkyM30.knoCRNm8-gUqc1K5Z15O98mq0O-tDIA-CimgY9Is9Ag
+Content-Type: application/json
+
+{
+    "name": "Krvavec",
+    "region": "Kranj",
+    "longtitude": 14.538062,
+    "latitude": 46.29768,
+    "source": "arso",
+    "reliability": "100",
+    "PM10": null,
+    "PM2_5": null,
+    "SO2": null,
+    "CO": null,
+    "O3": "84",
+    "NO2": null,
+    "C6H6": null,
+    "measuring_start": "2023-10-29 10:00",
+    "measuring_end": "2023-10-29 11:00"
+}
+
+### MB Titova - added
+
+POST http://localhost:3000/air_pollution
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoianVyZWQxMDAiLCJwYXNzd29yZCI6IjEyMzQ1NiIsIl9pZCI6IjYyNzdkZThiYjNjYjFkMjM4MjVkNDU4NiIsIl9fdiI6MH0sImlhdCI6MTY1MjAyMjkyM30.knoCRNm8-gUqc1K5Z15O98mq0O-tDIA-CimgY9Is9Ag
+Content-Type: application/json
+
+{
+    "name": "MB Titova",
+    "region": "Maribor",
+    "longtitude": 15.656191,
+    "latitude": 46.559202,
+    "source": "arso",
+    "reliability": "100",
+    "PM10": "15",
+    "PM2_5": "4",
+    "SO2": null,
+    "CO": null,
+    "O3": null,
+    "NO2": "19",
+    "C6H6": null,
+    "measuring_start": "2023-10-29 10:00",
+    "measuring_end": "2023-10-29 11:00"
+}
+
+###
+
+GET http://localhost:3000/weather
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoianVyZWQxMDAiLCJwYXNzd29yZCI6IjEyMzQ1NiIsIl9pZCI6IjYyNzdkZThiYjNjYjFkMjM4MjVkNDU4NiIsIl9fdiI6MH0sImlhdCI6MTY1MjAyMjkyM30.knoCRNm8-gUqc1K5Z15O98mq0O-tDIA-CimgY9Is9Ag
+
+### measuring start/measuring end je sunrise/sunset !!
+
+POST http://localhost:3000/weather
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoianVyZWQxMDAiLCJwYXNzd29yZCI6IjEyMzQ1NiIsIl9pZCI6IjYyNzdkZThiYjNjYjFkMjM4MjVkNDU4NiIsIl9fdiI6MH0sImlhdCI6MTY1MjAyMjkyM30.knoCRNm8-gUqc1K5Z15O98mq0O-tDIA-CimgY9Is9Ag
+Content-Type: application/json
+
+{
+    "name": "NOVA GORICA BILJE",
+    "region": "Nova Gorica",
+    "longtitude": 13.624,
+    "latitude": 45.8956,
+    "source": "arso",
+    "reliability": "100",
+    "sunrise": "29.10.2023 5:43",
+    "sunset": "29.10.2023 20:22",
+    "temp": 19.4,
+    "dew_point_temp": 11.7,
+    "avg_temp": 19.3,
+    "max_temp": null,
+    "min_temp": null,
+    "rlt_humidity": 61,
+    "avg_humidity": 60,
+    "avg_wind_direction": 78,
+    "direction_largest_gust_wind": 71,
+    "avg_wind_speed": 2.91,
+    "max_wind_speed": 4.53,
+    "avg_air_pressure_reduced_to_sea_level": 1019.5,
+    "avg_air_pressure": 1012.9,
+    "rainfall": 0,
+    "snow_height": null,
+    "water_temp": null,
+    "global_solar_radiation": 320,
+    "avg_global_solar_radiation": 302,
+    "diffuse_solar_radiation": 317,
+    "avg_diffuse_solar_radiation": 295,
+    "visibility": 24,
+    "temp_at_5cm": 20.2,
+    "temp_at_5cm_depth": 16.9,
+    "avg_temp_at_5cm_depth": 16.8,
+    "temp_at_10cm_depth": 16.5,
+    "avg_temp_at_10cm_depth": 16.4,
+    "temp_at_20cm_depth": 16.3,
+    "avg_temp_at_20cm_depth": 16.3,
+    "temp_at_30cm_depth": 16.6,
+    "avg_temp_at_30cm_depth": 16.6,
+    "temp_at_50cm_depth": 16.3,
+    "avg_temp_at_50cm_depth": 16.3,
+    "measuring_start": "08.05.2022 5:43",
+    "measuring_end": "08.05.2022 20:22"
+}
+
+###
+
+GET http://localhost:3000/weather/6277dae1ff12d0eb8b942054
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoianVyZWQxMDAiLCJwYXNzd29yZCI6IjEyMzQ1NiIsIl9pZCI6IjYyNzdkZThiYjNjYjFkMjM4MjVkNDU4NiIsIl9fdiI6MH0sImlhdCI6MTY1MjAyMjkyM30.knoCRNm8-gUqc1K5Z15O98mq0O-tDIA-CimgY9Is9Ag
+
+### Celjska Bolnišnica 0km
+
+GET http://localhost:3000/air_pollution/geo?longtitude=15.267305&latitude=46.234818
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoianVyZWQxMDAiLCJwYXNzd29yZCI6IjEyMzQ1NiIsIl9pZCI6IjYyNzdkZThiYjNjYjFkMjM4MjVkNDU4NiIsIl9fdiI6MH0sImlhdCI6MTY1MjAyMjkyM30.knoCRNm8-gUqc1K5Z15O98mq0O-tDIA-CimgY9Is9Ag
+
+### Žalec 8km
+
+GET http://localhost:3000/air_pollution/geo?longtitude=15.165707491002014&latitude=46.255782306302336
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoianVyZWQxMDAiLCJwYXNzd29yZCI6IjEyMzQ1NiIsIl9pZCI6IjYyNzdkZThiYjNjYjFkMjM4MjVkNDU4NiIsIl9fdiI6MH0sImlhdCI6MTY1MjAyMjkyM30.knoCRNm8-gUqc1K5Z15O98mq0O-tDIA-CimgY9Is9Ag
+
+### Šempeter 11km
+
+GET http://localhost:3000/air_pollution/geo?longtitude=15.11985434584504&latitude=46.25672879795726
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoianVyZWQxMDAiLCJwYXNzd29yZCI6IjEyMzQ1NiIsIl9pZCI6IjYyNzdkZThiYjNjYjFkMjM4MjVkNDU4NiIsIl9fdiI6MH0sImlhdCI6MTY1MjAyMjkyM30.knoCRNm8-gUqc1K5Z15O98mq0O-tDIA-CimgY9Is9Ag

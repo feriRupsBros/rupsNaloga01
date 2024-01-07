@@ -1,0 +1,58 @@
+version: '3.8'
+services:
+  traefik:
+    image: traefik:2.6
+    restart: always
+    command:
+      # We are going to use the docker provider
+      - "--providers.docker"
+      # Only enabled containers should be exposed
+      - "--providers.docker.exposedByDefault=false"
+      # We want to use the dashbaord
+      - "--api.dashboard=false"
+      # The entrypoints we ant to expose
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      # Enable ACME (Let's Encrypt): automatic SSL.
+      - "--certificatesresolvers.letsencrypt.acme.email=tim.prapotnik@student.um.si"
+      - "--certificatesresolvers.letsencrypt.acme.storage=/etc/traefik/acme/acme.json"
+      - "--certificatesresolvers.letsencrypt.acme.httpchallenge=true"
+      - "--certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web"
+      # Global redirect to https
+      - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entryPoint.scheme=https"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      # Traefik configuration
+      - ./letsencrypt:/etc/traefik/acme
+    depends_on:
+      - node
+
+  node:
+    build:
+      context: server
+      dockerfile: Dockerfile
+    depends_on:
+      - mongodb
+    environment:
+      DATABASE_URL: mongodb://rootuser:rootuser@mongodb:27017
+      JWR_SECERET: seceret
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.node.rule=Host(`rups.ddns.net`)"
+      - "traefik.http.routers.node.entrypoints=websecure"
+      - "traefik.http.routers.node.tls.certresolver=letsencrypt"
+
+  mongodb:
+    image: docker.io/mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - ./db:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: seceret
+      MONGO_INITDB_ROOT_PASSWORD: seceret
+      MONGO_INITDB_DATABASE: magic

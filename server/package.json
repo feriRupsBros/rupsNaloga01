@@ -1,0 +1,23 @@
+{
+  "name": "magic",
+  "version": "0.0.1",
+  "description": "Fuck do I know, it aint like anyone's ever gonna read this anyway... right? If you're reading this, then there's something wrong with you. I suggest you visit a doctor immediately",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chart.js": "^3.7.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^8.0.0",
+    "node-geocoder": "^4.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.1",
+    "nodemon": "^2.0.16"
+  }
+}
