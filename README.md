@@ -1,37 +1,53 @@
-# Instructions for deployment
+# Deployment Instructions
 
-**NOTE**: For testing purposes you can skip these steps but SSL wont work.
+**NOTE:** For testing purposes, you can skip these steps, but SSL won't work.
 
-This website is hosted on rups.ddns.net whitch is a free domain we got from [No-Ip](https://www.noip.com/).
-The domain has to  point to your host.
+This website is hosted on `rups.ddns.net`, which is a free domain obtained from [No-Ip](https://www.noip.com/). Ensure that the domain points to your host.
 
-Your host has to expose port `80` and `433` (Port forwading is also required)
-```Bash
+Your host must expose ports `80` and `443` (Port forwarding is also required).
+
+```bash
 $ sudo ufw allow 80
 $ sudo ufw allow 443
 ```
 
-In the docker-compose.yaml you also have to replace every instance of `rups.ddns.net` with your own domain. 
+In the `docker-compose.yaml`, replace every instance of `rups.ddns.net` with your own domain.
 
-And maybe change up teh username and password for mongodb 
-```YML
+Additionally, consider changing the username and password for MongoDB:
+
+```yaml
 environment:
-    MONGO_INITDB_ROOT_USERNAME: seceret
-    MONGO_INITDB_ROOT_PASSWORD: seceret
+    MONGO_INITDB_ROOT_USERNAME: secret
+    MONGO_INITDB_ROOT_PASSWORD: secret
 ```
-and the JWT secerets
-```YML
+
+Also, update the JWT secrets:
+
+```yaml
 environment:
-    DATABASE_URL: mongodb://seceret:seceret@mongodb:27017
-    JWR_SECERET: seceret
+    DATABASE_URL: mongodb://secret:secret@mongodb:27017
+    JWT_SECRET: secret
 ```
 
+To start the server, run:
 
-Then to start up teh server you run
-
-```Bash
-$ sudo docker-compose up
+```bash
+$ sudo docker-compose up --build
 ```
 
-*NOTE*: The SSL takes a while to activate so if teh SSL certificate is invalid wait for a bit.
-*NOTE*: This proxy or at least the SSL part doesnt work on localhost
+**NOTE:** SSL activation may take some time. If the SSL certificate is invalid, wait for a bit. Keep in mind that this proxy, especially the SSL part, may not work on localhost.
+
+## Running the Scraper
+
+First, update the `scraper/docker-compose.yaml` to point to the server URL:
+
+```yaml
+API_URL: https://rups.ddns.net
+```
+
+To run the scraper, execute the following commands:
+
+```bash
+$ cd scraper
+$ sudo docker-compose up --build
+```
