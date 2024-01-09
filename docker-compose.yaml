@@ -38,7 +38,7 @@ services:
     depends_on:
       - mongodb
     environment:
-      DATABASE_URL: mongodb://rootuser:rootuser@mongodb:27017
+      DATABASE_URL: mongodb://seceret:seceret@mongodb:27017
       JWR_SECERET: seceret
     labels:
       - "traefik.enable=true"
